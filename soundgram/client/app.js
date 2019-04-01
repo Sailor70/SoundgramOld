@@ -1,11 +1,17 @@
-(function(window, angular, undefined){
+(function(window, angular, undefined){ //definiujemy moduł (angular.module)
     angular.module('app', ['ui.router']) //w kwadratowym moduł dependencyjny do routingu
     .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, 
         $stateProvider){
-            $stateProvider.state('home', {
+            $stateProvider
+            .state('home', {
                 url: '/',
                 templateUrl: '/client/components/home/home.html',
                 controller: 'homeCtrl'
+            })
+            .state('main', {
+                url: '/main',
+                templateUrl: '/client/components/main/main.html',
+                controller: 'mainCtrl'
             })
             $urlRouterProvider.otherwise('/');
         }])

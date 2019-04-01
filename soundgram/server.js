@@ -4,7 +4,7 @@ var bodyParser = require('body-parser'); //body-parser parses your request and c
 var db = require('./server/database/database');
 var jwt = require('jsonwebtoken');
 
-process.env.SECRET = "jakies ciulstwo";
+process.env.SECRET = "music is a King of art"; //co to process?
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
