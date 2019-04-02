@@ -3,7 +3,7 @@
     .controller('mainCtrl', ['$scope', '$state', '$http', 'userSvc',
     function($scope, $state, $http, userSvc){
         $scope.userData = userSvc.user;
-        console.log(userData);
+        console.log($scope.userData);
         $http({
             method: "GET",
             url: '/secure-api/user/get_users',
@@ -15,5 +15,6 @@
         }, function(err){
             console.err(err);
         })
+
     }]);
 })(window, window.angular)
