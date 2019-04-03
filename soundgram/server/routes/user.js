@@ -22,7 +22,8 @@ router.use(function(req,res,next){
 });
 //GET ENDPOINTS
 router.get('/get_followed', function(req, res){
-    var query = "SELECT * FROM user_followed_accounts WHERE user_id=" + req.user_id;
+    var query = "SELECT followed.followed_id, followed.date_followed, u.username, u.display_name" +
+    " FROM user_followed_accounts followed INNER JOIN users u ON(u.id = followed.followed_id) WHERE user_id=" + req.user_id; //"SELECT * FROM user_followed_accounts WHERE user_id=" + req.user_id
 
     db.query(query).spread(function(result, metadata){
         res.json({
