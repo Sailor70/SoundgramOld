@@ -8,12 +8,50 @@
         $scope.userFollowed = [];
         $scope.users = [];
 
+        var config = {
+            headers: {
+                'auth-token': userSvc.token
+            }
+        }
         //Functions
 
-        $scope.addUser = function(userId){
-            var requestData = {
-                //dodać usera do followowanych
+        $scope.followUser = function(userId){
+            var data = {
+                'receiverId': userId
             }
+            $http.post('/secure-api/user/follow_user', data, config).then(function(response){
+                console.log("Dodano usera do obserwowanych!")
+            }, function(err){
+                console.error(err);
+            })
+        }
+
+        $scope.unfollowUser = function(userId){
+            var data = {
+                headers: {
+                    'auth-token': userSvc.token
+                },
+                followedId: userId
+            };
+            // $http({
+            //     method: "DELETE",
+            //     url: '/secure-api/user/unfollow_user',
+            //     headers: {
+            //         'auth-token': userSvc.token
+            //     },
+            //     data: {
+            //         'followedId': userId
+            //     }
+            // }).then(function(response){
+            //     console.log("Usunięto usera z obserwowanych!");
+            // }, function(err){
+            //     console.error(err);
+            // });
+            $http.delete('/secure-api/user/unfollow_user', data).then(function(response){
+                console.log("Usunięto usera z obserwowanych!")
+            }, function(err){
+                console.error(err);
+            })
         }
         //lista follow'owanych userów
         $http({
@@ -25,7 +63,7 @@
         }).then(function(response){
             $scope.userFollowed = response.data.data;
         }, function(err){
-            console.err(err);
+            console.error(err);
         });
 
         //pobranie listy wszystkich userów
@@ -38,7 +76,7 @@
         }).then(function(response){
             $scope.users = response.data.data;
         }, function(err){
-            console.err(err);
+            console.error(err);
         })
     }]);
 })(window, window.angular)

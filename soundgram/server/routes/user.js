@@ -74,4 +74,15 @@ router.post('/follow_user', function(req, res){
         }
 });
 
+router.delete('unfollow_user', function(req, res){
+    var query = "DELETE FROM user_followed_accounts WHERE user_id=" + req.user_id +
+    " AND followed_id=" + req.body.followedId;
+
+    db.query(query).spread(function(){
+        res.status(200).send("Usunięto usera z obserwowanych");
+    }).catch(function(){
+        res.status(500).send("Nie udało się dodać usunąć usera z obserwowanych");
+    })
+});
+
 module.exports = router;

@@ -4,7 +4,7 @@
             <h3>My Followed users: </h3>
             <ul>
                 <li ng-repeat="followed in userFollowed">
-                    {{followed.username}}
+                    {{followed.username}} <button ng-click="unfollowUser(followed.followed_id)">Unfollow</button>
                 </li>
             </ul>
         </div>
@@ -13,7 +13,7 @@
             <h3>Users to Add: </h3>
             <ul>
                 <li ng-repeat="user in users">
-                    {{user.username}} <button ng-click="addUser(user.id)">Add</button>
+                    {{user.username}} <button ng-click="followUser(user.id)">Add</button>
                 </li>
             </ul>
         </div>
