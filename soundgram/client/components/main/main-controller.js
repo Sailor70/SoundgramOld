@@ -27,27 +27,8 @@
         }
 
         $scope.unfollowUser = function(userId){
-            var data = {
-                headers: {
-                    'auth-token': userSvc.token
-                },
-                followedId: userId
-            };
-            // $http({
-            //     method: "DELETE",
-            //     url: '/secure-api/user/unfollow_user',
-            //     headers: {
-            //         'auth-token': userSvc.token
-            //     },
-            //     data: {
-            //         'followedId': userId
-            //     }
-            // }).then(function(response){
-            //     console.log("Usunięto usera z obserwowanych!");
-            // }, function(err){
-            //     console.error(err);
-            // });
-            $http.delete('/secure-api/user/unfollow_user', data).then(function(response){
+            
+            $http.delete('/secure-api/user/unfollow_user/' + userId , config).then(function(response){
                 console.log("Usunięto usera z obserwowanych!")
             }, function(err){
                 console.error(err);
