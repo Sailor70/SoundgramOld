@@ -4,7 +4,7 @@
     function($scope, $state, $http, userSvc){
         $scope.userData = userSvc.user;
         //console.log($scope.userData);
-
+        $scope.newPost = undefined;
         $scope.userFollowed = [];
         $scope.users = [];
 
@@ -33,6 +33,19 @@
             }, function(err){
                 console.error(err);
             })
+        }
+
+        $scope.submitPost = function(content){
+            var requestData = {
+                content: content
+            }
+
+            $http.post('/secure-api/post/create_post', requestData, config).then(function(response){
+                $scope.newPost = "";
+                console.log("Post was properly submitted");
+            }), function(err){
+                console.error(err);
+            }
         }
         //lista follow'owanych userów
         $http({
