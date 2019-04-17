@@ -21,7 +21,15 @@
 
     <div class="row text-center">
         <h3>Add a post</h3>
-        <textarea ng-model="newPost"></textarea>
+        <textarea ng-model="newPost"></textarea> <br/>
         <button ng-click="submitPost(newPost)">Submit Post</button>
+
+        <h3>Followed users posts</h3>
+        <ul>
+            <li ng-repeat="post in followedPosts">
+                <strong>{{post.username}}:</strong>
+                <p>{{post.post_content}}</p>
+            </li>
+        </ul>
     </div>
 </div>

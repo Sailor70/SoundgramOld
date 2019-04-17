@@ -7,6 +7,7 @@
         $scope.newPost = undefined;
         $scope.userFollowed = [];
         $scope.users = [];
+        $scope.followedPosts = [];
 
         var config = {
             headers: {
@@ -47,6 +48,13 @@
                 console.error(err);
             }
         }
+        //posty
+
+        $http.get('/secure-api/post/get_posts', config).then(function(response){
+            $scope.followedPosts = response.data.data;
+        }, function(err){
+            console.error(err);
+        });
         //lista follow'owanych userów
         $http({
             method: "GET",
