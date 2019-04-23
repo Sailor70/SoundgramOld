@@ -1,5 +1,5 @@
-<div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center"> <!--układ elementu na stronie-->
+<div class="row">
+    <div class="col text-center"> <!--układ elementu na stronie, "col-lg-6 col-md-6 col-sm-6 col-xl-12 text-center"-->
         <h3>Nazwa użytkownika</h3>
         <input type="text" ng-model="newUser.username" maxlength="40" /> <!-- ng-model przypisuje
         wartości uzyskane z html do danych aplikacji -->
@@ -13,7 +13,7 @@
         <button ng-click="createUser(newUser)">Stwórz użytkownika</button>
     </div>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+    <div class="col text-center">
         <h3>Nazwa użytkownika lub Email</h3>
         <input type="text" ng-model="existingUser.loginName"/>
 
