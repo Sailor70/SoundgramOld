@@ -1,26 +1,30 @@
 <div class="row">
     <div class="col text-center"> <!--układ elementu na stronie, "col-lg-6 col-md-6 col-sm-6 col-xl-12 text-center"-->
-        <h3>Nazwa użytkownika</h3>
-        <input type="text" ng-model="newUser.username" maxlength="40" /> <!-- ng-model przypisuje
-        wartości uzyskane z html do danych aplikacji -->
+        <div class="landing-panel center-block">
+            <h3>Nazwa użytkownika</h3>
+            <input type="text" ng-model="newUser.username" maxlength="40" /> <!-- ng-model przypisuje
+            wartości uzyskane z html do danych aplikacji -->
 
-        <h3>Email</h3>
-        <input type="email" ng-model="newUser.email"/>
+            <h3>Email</h3>
+            <input type="email" ng-model="newUser.email"/>
 
-        <h3>Hasło</h3>
-        <input type="password" ng-model="newUser.user_password"/> <br>
+            <h3>Hasło</h3>
+            <input type="password" ng-model="newUser.user_password"/> <br>
 
-        <button ng-click="createUser(newUser)">Stwórz użytkownika</button>
+            <button ng-click="createUser(newUser)">Stwórz użytkownika</button>
+        </div>
     </div>
 
     <div class="col text-center">
-        <h3>Nazwa użytkownika lub Email</h3>
-        <input type="text" ng-model="existingUser.loginName"/>
+        <div class="landing-panel center-block">
+            <h3>Nazwa użytkownika lub Email</h3>
+            <input type="text" ng-model="existingUser.loginName"/>
 
-        <h3>Hasło</h3>
-        <input type="text" ng-model="existingUser.password"/> <br>
+            <h3>Hasło</h3>
+            <input type="text" ng-model="existingUser.password"/> <br>
 
-        <button ng-click="logUserIn(existingUser)">Zaloguj</button>
+            <button ng-click="logUserIn(existingUser)">Zaloguj</button>
+        </div>
     </div>
 
 </div>

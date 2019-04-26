@@ -37,6 +37,6 @@ module.exports.logIn = function(req, res){
             res.status(400).send("Nieprawidłowe hasło!");
         }
     }).catch(function(err){
-        res.status(500).send("nie udało się zrealizaować zapytania");
+        res.status(500).send("nie udało się zrealizaować zapytania " + err);
     })
 }

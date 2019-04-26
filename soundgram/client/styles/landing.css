@@ -1,0 +1,8 @@
+/* landing page styling */
+
+.landing-panel{
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: #9E71A8;
+    max-width: 300px;
+}
