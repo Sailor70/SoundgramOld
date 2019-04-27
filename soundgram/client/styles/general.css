@@ -2,4 +2,13 @@
 
 body{
     background-color: #771b8b;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+input {
+    color: #000;
+}
+
+.section-title {
+    font-family: 'Righteous';
 }
