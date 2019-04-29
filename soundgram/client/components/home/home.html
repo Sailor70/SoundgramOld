@@ -23,12 +23,12 @@
                 <div class="landing-panel mx-auto">
                     <h3 class="section-title">Login</h3>
                     <h3>Nazwa użytkownika lub Email</h3>
-                    <input type="text" ng-model="existingUser.loginName"/>
+                    <input id="loginName" type="text" ng-model="existingUser.loginName"/>
     
                     <h3>Hasło</h3>
-                    <input type="text" ng-model="existingUser.password"/> <br>
+                    <input id="loginPassword" type="text" ng-model="existingUser.password"/> <br>
     
-                    <button class="cta-button" ng-click="logUserIn(existingUser)">Zaloguj</button>
+                    <button id="loginBtn" class="cta-button" ng-click="logUserIn(existingUser)">Zaloguj</button>
                 </div>
             </div>
     

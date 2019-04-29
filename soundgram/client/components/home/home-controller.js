@@ -13,6 +13,7 @@
 
         $scope.logUserIn = function(user){
             $http.post('/api/user/login', user).then(function(response){
+                //localStorage.clear();
                 userSvc.token = response.data.token;
                 userSvc.user = response.data.userData;
                 localStorage.setItem('token', JSON.stringify(userSvc.token));
