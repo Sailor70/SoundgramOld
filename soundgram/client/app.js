@@ -1,7 +1,8 @@
 (function(window, angular, undefined){ //definiujemy moduł (angular.module)
     angular.module('app', ['ui.router']) //w kwadratowym moduł dependencyjny do routingu
-    .config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, 
-        $stateProvider){
+    .config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
+    function($urlRouterProvider, $stateProvider, $locationProvider){
+            $locationProvider.html5Mode(true); //usunięcie #! z url strony + <base> w index.html
             $stateProvider
             .state('home', {
                 url: '/',

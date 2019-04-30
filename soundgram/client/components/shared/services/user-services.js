@@ -1,7 +1,7 @@
 (function(window, angular, undefined){ //tworze własny service do tokena i danych usera
     angular.module('app')
     .service('userSvc', [function(){
-        localStorage.clear(); //dodane
+        //localStorage.clear(); //dodane
         var vm = this;
         vm.token = undefined;
         vm.user = undefined;
@@ -10,8 +10,8 @@
         var cachedUser  = localStorage.getItem('user');
         
         if (cachedToken){
-            vm.token = JSON.parse(cachedToken);
-            vm.user  = JSON.parse(cachedUser);
+            vm.token = cachedToken;
+            vm.user  = cachedUser; //JSON.parse(cachedUser)
         }
         
     }]);
