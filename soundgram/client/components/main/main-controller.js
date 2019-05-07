@@ -7,6 +7,7 @@
         $scope.newPost = undefined;
         $scope.userFollowed = [];
         $scope.users = [];
+        $scope.displayedUsers = [];
         $scope.followedPosts = [];
 
         var config = {
@@ -15,13 +16,16 @@
             }
         }
         //Functions
+        $scope.filter = function(sort, users){
+            
+        }
 
         $scope.followUser = function(userId){
             var data = {
                 'receiverId': userId
             }
             $http.post('/secure-api/user/follow_user', data, config).then(function(response){
-                console.log("Dodano usera do obserwowanych!")
+                console.log("Dodano usera do obserwowanych!");
             }, function(err){
                 console.error(err);
             })

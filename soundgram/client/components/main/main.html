@@ -13,6 +13,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
             <h3>Users to Add: </h3>
+            <textarea ng-model="sort"></textarea><button ng-click="filter(sort, users)">Filtruj</button> <br/>
             <ul>
                 <li ng-repeat="user in users">
                     {{user.username}} <button ng-click="followUser(user.id)">Add</button>

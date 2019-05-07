@@ -27,7 +27,7 @@
 
         var init = function(){ //tymczasowa funkcja czyszcząca na początek localStorage
             localStorage.clear()
-            //console.log(localStorage.getItem('token'));
+            console.log(localStorage.getItem('token'));
         }
 
         init();
