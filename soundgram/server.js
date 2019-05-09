@@ -26,6 +26,10 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/client/index.html')
 })
 
+app.get('*', function(req, res) { //naprawa cannot GET /main - trzeba przekierować do Angulara wszystkie routy których Node nie używa
+    res.sendfile(__dirname + '/client/index.html')
+})
+
 
 app.post('/api/user/create', userController.createUser);
 app.post('/api/user/login', userController.logIn);
