@@ -8,6 +8,7 @@
         $scope.userFollowed = [];
         $scope.users = [];
         $scope.followedPosts = [];
+        $scope.searchFilter = '';
 
         var config = {
             headers: {
@@ -15,7 +16,26 @@
             }
         }
         //Functions
+        $scope.filterData = function (user) {
+            return anyNameStartsWith(user.username, $scope.searchFilter);
+        };
 
+        function anyNameStartsWith (fullname, search) {
+
+            //validate if name is null or not a string if needed
+            if (search === '')
+              return true;
+          
+            var delimeterRegex = /[ _-]+/; //wyrazy rozdzielone znakami spacja _ - w dowolnej ilości i kolejności (2 wyrazy)
+            //split the fullname into individual names
+            var names = fullname.split(delimeterRegex); //rozdziela wyrazy na podstawie podanego regexu
+          
+            //do any of the names in the array start with the search string
+            return names.some(function(name) { //sprawdza czy którykolwiek z elementów spełnia warunek, jeśli któryś spełnia to zwraca true
+                return name.toLowerCase().indexOf(search.toLowerCase()) === 0; //zwraca true jeśli name zaczyna się od search (jest na pozycji 0)
+            });
+        }
+        
         $scope.followUser = function(userId){
             var data = {
                 'receiverId': userId
@@ -68,7 +88,7 @@
             console.error(err);
         });
 
-        //pobranie listy wszystkich userów
+        //pobranie listy userów którzy nie są na liście obserwowanych
         $http({
             method: "GET",
             url: '/secure-api/user/get_users',

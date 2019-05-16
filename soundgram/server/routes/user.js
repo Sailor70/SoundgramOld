@@ -35,9 +35,8 @@ router.get('/get_followed', function(req, res){
 });
 
 router.get('/get_users', function(req, res){ //pobranie wszystkich userów z bazy
-    var query = "SELECT id, username, first_name, last_name FROM users WHERE id <> " + 
-    req.user_id;
-
+    //var query = "SELECT id, username, first_name, last_name FROM users WHERE id <> " + req.user_id;
+    var query = "SELECT id, username, first_name, last_name FROM users WHERE id <> "+req.user_id + " AND id NOT IN (SELECT followed_id FROM user_followed_accounts WHERE user_id = "+ req.user_id +")";
     db.query(query).spread(function(result, metadata){
         res.json({
             data: result
