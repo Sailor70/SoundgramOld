@@ -35,7 +35,7 @@ app.post('/api/user/create', userController.createUser);
 app.post('/api/user/login', userController.logIn);
 
 db.sync().then(function(){
-    app.listen(4200, function(){ //na porcie 3000 będzie obsługiwany serwer
+    app.listen(3000, function(){ //na porcie 3000 będzie obsługiwany serwer
         console.log("nasluchiwanie dziala!");
     })
 })

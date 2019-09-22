@@ -1,37 +1,69 @@
 <div>
-    <top-nav></top-nav>
     
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-            <h3>My Followed users: </h3>
-            <ul>
-                <li ng-repeat="followed in userFollowed | filter : filterData">
-                    {{followed.username}} <button ng-click="unfollowUser(followed.followed_id)">Unfollow</button>
-                </li>
-            </ul>
-            Filter users: <input type="text" ng-model="searchFilter"/>
+    <top-nav></top-nav>
+    <div class="main-left-section">
+        <div class="main-left-user text-center">
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+            <h5 class="section-title">View Your Profile</h5>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
-            <h3>Users to Add: </h3>
-            <ul>
+        
+        <div class="main-left-friends"
+             ng-show="userFollowed.length > 0">
+        <h5 class="section-title text-center">Your Followed Users</h5>
+            
+            <div class="main-left-friend-scroll">
+                <ul class="main-friend-list">
+                    <li ng-repeat="followed in userFollowed | filter : filterData">
+                       <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{followed.username}}
+                       <button class="add-user-right-button"
+                        ng-click="unfollowUser(followed.followed_id)">
+                        <i class="fa fa-minus-circle" aria-hidden="true"></i>
+                    </button>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </div>   
+    <div class="main-right-section"> 
+
+        <h5 class="section-title text-center">Filter users:</h5>
+        <textarea ng-model="searchFilter"></textarea> <br/>
+            
+            <h5 class="section-title text-center">Users to Add</h5>
+            <ul class="main-friend-list text-left">
                 <li ng-repeat="user in users | filter : filterData">
-                    {{user.username}} <button ng-click="followUser(user.id)">Add</button>
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user.username}} 
+                    <button class="add-user-right-button"
+                            ng-click="followUser(user.id)">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </button>
                 </li>
             </ul>
-        </div>
+        
     </div>
 
-    <div class="row text-center">
-        <h3>Add a post</h3>
+ 
+    
+    <div class="statuses-section text-center">
+        <h3 class="section-title">Add a post</h3>
+        
         <textarea ng-model="newPost"></textarea> <br/>
-        <button ng-click="submitPost(newPost)">Submit Post</button>
-
-        <h3>Followed users posts</h3>
-        <ul>
-            <li ng-repeat="post in followedPosts">
-                <strong>{{post.username}}:</strong>
+        
+        <button class="cta-button mt10"
+                ng-click="submitPost(newPost)">
+            Submit Post
+        </button>
+        
+        <h3 class="section-title">Followed users posts</h3>
+        
+        <div class="status-post center-block"
+             ng-repeat="post in followedPosts">
+            <strong>{{post.username}}</strong> <br/>
+            <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i><br/>
+            
                 <p>{{post.post_content}}</p>
-            </li>
-        </ul>
+        </div>
     </div>
 </div>

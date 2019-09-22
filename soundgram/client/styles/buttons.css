@@ -1,15 +1,22 @@
 /* Buttons */
 
-.cta-button{ /* control action button */
+.cta-button{
     min-width: 100px;
     height: 50px;
-    background-color: #771b8b;
+    background-color: #FF7909;
     color: #fff;
     border: 1px solid #fff;
     margin-top: 20px;
-    font-family: 'Righteous';
+    font-family: 'Bungee';
 }
 
 .cta-button:hover{
-    background-color: #ad57c0
+    background-color: #2D2014;
+}
+
+.add-user-right-button,
+.decline-user-right-button{
+   background-color: #FF831C;
+   border: none;
+   color: #2D2014;
 }

@@ -1,15 +1,24 @@
 /* globL styles */
 
 body{
-    background-color: #771b8b;
+    background-color: #FF7909;
     font-family: 'Josefin Sans', sans-serif;
     padding-top: 50px;
 }
 
-input {
+input, textarea {
     color: #000;
 }
 
 .section-title {
     font-family: 'Righteous';
+}
+
+.section-title-nav {
+    font-family: 'Righteous';
+    color: #FFF;
+}
+
+.mt10 {
+    margin-top: 10px !important;
 }

@@ -1,0 +1,37 @@
+<div>
+    <top-nav></top-nav>
+    
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+            <h3>My Followed users: </h3>
+            <ul>
+                <li ng-repeat="followed in userFollowed | filter : filterData">
+                    {{followed.username}} <button ng-click="unfollowUser(followed.followed_id)">Unfollow</button>
+                </li>
+            </ul>
+            Filter users: <input type="text" ng-model="searchFilter"/>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-12">
+            <h3>Users to Add: </h3>
+            <ul>
+                <li ng-repeat="user in users | filter : filterData">
+                    {{user.username}} <button ng-click="followUser(user.id)">Add</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <h3>Add a post</h3>
+        <textarea ng-model="newPost"></textarea> <br/>
+        <button ng-click="submitPost(newPost)">Submit Post</button>
+
+        <h3>Followed users posts</h3>
+        <ul>
+            <li ng-repeat="post in followedPosts">
+                <strong>{{post.username}}:</strong>
+                <p>{{post.post_content}}</p>
+            </li>
+        </ul>
+    </div>
+</div>

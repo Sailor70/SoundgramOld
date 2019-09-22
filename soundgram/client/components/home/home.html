@@ -1,34 +1,34 @@
 <div>
         <h1 class="section-title text-center">Welcome to Soundgram</h1>
-        <h4 class="text-center">Soundgram jest miejscem do dzielenia się z innymi swoimi dźwiękami</h4>
+        <h4 class="text-center">Soundgram is a place to share sounds with your friends</h4>
         <div class="row"> <!-- class="row" -->
             <div class="col text-center"> <!--układ elementu na stronie, "col-lg-6 col-md-6 col-sm-6 col-xl-12 text-center"-->
                 <div class="landing-panel mx-auto">
                     <h3 class="section-title">Sign-Up</h3>
-                    <h3>Nazwa użytkownika</h3>
+                    <h3>Name</h3>
                     <input type="text" ng-model="newUser.username" maxlength="40" /> <!-- ng-model przypisuje
                     wartości uzyskane z html do danych aplikacji -->
     
                     <h3>Email</h3>
                     <input type="email" ng-model="newUser.email"/>
     
-                    <h3>Hasło</h3>
+                    <h3>Password</h3>
                     <input type="password" ng-model="newUser.user_password"/> <br>
     
-                    <button class="cta-button" ng-click="createUser(newUser)">Stwórz użytkownika</button>
+                    <button class="cta-button" ng-click="createUser(newUser)">Create account</button>
                 </div>
             </div>
     
             <div class="col text-center">
                 <div class="landing-panel mx-auto">
                     <h3 class="section-title">Login</h3>
-                    <h3>Nazwa użytkownika lub Email</h3>
+                    <h3>Name or Email</h3>
                     <input type="text" ng-model="existingUser.loginName"/>
     
-                    <h3>Hasło</h3>
-                    <input type="text" ng-model="existingUser.password"/> <br>
+                    <h3>Password</h3>
+                    <input type="password" ng-model="existingUser.password"/> <br>
     
-                    <button class="cta-button" ng-click="logUserIn(existingUser)">Zaloguj</button>
+                    <button class="cta-button" ng-click="logUserIn(existingUser)">Login</button>
                 </div>
             </div>
     
