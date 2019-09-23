@@ -32,15 +32,17 @@
         <textarea ng-model="searchFilter"></textarea> <br/>
             
             <h5 class="section-title text-center">Users to Add</h5>
-            <ul class="main-friend-list text-left">
-                <li ng-repeat="user in users | filter : filterData">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user.username}} 
-                    <button class="add-user-right-button"
-                            ng-click="followUser(user.id)">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    </button>
-                </li>
-            </ul>
+            <div class="main-left-friend-scroll">
+                <ul class="main-friend-list text-left">
+                    <li ng-repeat="user in users | filter : filterData">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{user.username}} 
+                        <button class="add-user-right-button"
+                                ng-click="followUser(user.id)">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
         
     </div>
 

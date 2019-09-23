@@ -22,15 +22,12 @@
 
         function anyNameStartsWith (fullname, search) {
 
-            //validate if name is null or not a string if needed
             if (search === '')
               return true;
           
             var delimeterRegex = /[ _-]+/; //wyrazy rozdzielone znakami spacja _ - w dowolnej ilości i kolejności (2 wyrazy)
-            //split the fullname into individual names
             var names = fullname.split(delimeterRegex); //rozdziela wyrazy na podstawie podanego regexu
           
-            //do any of the names in the array start with the search string
             return names.some(function(name) { //sprawdza czy którykolwiek z elementów spełnia warunek, jeśli któryś spełnia to zwraca true
                 return name.toLowerCase().indexOf(search.toLowerCase()) === 0; //zwraca true jeśli name zaczyna się od search (jest na pozycji 0)
             });
@@ -63,7 +60,7 @@
 
             $http.post('/secure-api/post/create_post', requestData, config).then(function(response){
                 $scope.newPost = "";
-                console.log("Post was properly submitted");
+                console.log("Post został dodany!");
             }), function(err){
                 console.error(err);
             }

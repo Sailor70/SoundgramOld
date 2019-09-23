@@ -4,7 +4,7 @@ var db = require('../database/database');
 var bodyParser = require('body-parser');
 var jwt = require('jsonwebtoken');
 
-router.use(bodyParser.json()); //pt3 1:02
+router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
 
 //funkcja autoryzująca - sprawdza poprawność tokena

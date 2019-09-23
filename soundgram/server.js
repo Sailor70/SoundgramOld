@@ -4,7 +4,7 @@ var bodyParser = require('body-parser'); //body-parser parses your request and c
 var db = require('./server/database/database');
 var jwt = require('jsonwebtoken');
 
-process.env.SECRET = "music is a King of art"; //co to process?
+process.env.SECRET = "music is a King of art";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -35,7 +35,7 @@ app.post('/api/user/create', userController.createUser);
 app.post('/api/user/login', userController.logIn);
 
 db.sync().then(function(){
-    app.listen(3000, function(){ //na porcie 3000 będzie obsługiwany serwer
+    app.listen(3000, function(){
         console.log("nasluchiwanie dziala!");
     })
 })
