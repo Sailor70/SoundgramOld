@@ -60,12 +60,11 @@
         
         var isEmail = function(user){
             var emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            console.log('isEmail');
             return emailReg.test(user.email);
         }
         var usernameIsValid = function(user) {
-            console.log(user.username);
-            return /^[0-9a-zA-Z_.-]+$/.test(user.username);
+            var usernameReg = /^[0-9a-zA-Z_.-]+$/;
+            return usernameReg.test(user.username);
         }
 
         var checkPassword = function checkPassword(user)
@@ -73,7 +72,6 @@
             // at least one number, one lowercase letter
             // at least six characters
             var re = /(?=.*\d)(?=.*[a-z]).{6,}/; //(?=.*[A-Z]) 
-            console.log(user.user_password);
             return re.test(user.user_password);
         }
     }])
