@@ -6,14 +6,28 @@
                 <div class="landing-panel mx-auto">
                     <h3 class="section-title">Sign-Up</h3>
                     <h3>Name</h3>
-                    <input type="text" ng-model="newUser.username" maxlength="40" /> <!-- ng-model przypisuje
-                    wartości uzyskane z html do danych aplikacji -->
+                    <input type="text" ng-model="newUser.username" maxlength="40" />
+
+                    <div role="alert">
+                            <span class="error" ng-show="usernameInvalid">
+                            Not valid Username! <br/>Use: 0-9a-zA-Z_.- </span>
+                    </div>
     
                     <h3>Email</h3>
-                    <input type="email" ng-model="newUser.email"/>
+                    <input type="email" ng-model="newUser.email" required/>
+
+                    <div role="alert">
+                            <span class="error" ng-show="emailInvalid">
+                            Not valid email!</span>
+                    </div>
     
                     <h3>Password</h3>
                     <input type="password" ng-model="newUser.user_password"/> <br>
+
+                    <div role="alert">
+                            <span class="error" ng-show="passwordInvalid">
+                            Not valid password! <br/>Use: 6>chars, 1digit </span>
+                    </div>
     
                     <button class="cta-button" ng-click="createUser(newUser)">Create account</button>
                 </div>

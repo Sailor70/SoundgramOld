@@ -2,13 +2,41 @@
     angular.module('app')
     .controller('homeCtrl', ['$scope', '$http', '$state', 'userSvc',
     function($scope, $http, $state, userSvc){ //homrCtrl ustawiony jako główny w app.js
+
+        $scope.emailInvalid = false;
+        $scope.usernameInvalid = false;
+        $scope.passwordInvalid = false;
+
         
         $scope.createUser = function(user){ //co z nullem?
-            $http.post('/api/user/create', user).then(function(response){
-                console.log(response)
-            }, function(err){
-                console.error(err);
-            })
+
+            if(!isEmail(user)){
+                $scope.emailInvalid = true;
+            }
+            else{
+                $scope.emailInvalid = false;
+            }
+            if(!usernameIsValid(user)){
+                $scope.usernameInvalid = true;
+            }
+            else{
+                $scope.usernameInvalid = false;
+            }
+            if(!checkPassword(user)){
+                $scope.passwordInvalid = true;
+            }
+            else{
+                $scope.passwordInvalid = false;
+            }
+
+            console.log($scope.emailInvalid + ' ' + $scope.usernameInvalid + ' ' + $scope.passwordInvalid);
+            if(!$scope.emailInvalid && !$scope.usernameInvalid && !$scope.passwordInvalid){
+                $http.post('/api/user/create', user).then(function(response){
+                    console.log(response)
+                }, function(err){
+                    console.error(err);
+                })
+            }
         };
 
         $scope.logUserIn = function(user){
@@ -29,5 +57,24 @@
             //console.log(localStorage.getItem('token'));
         }
         init();
+        
+        var isEmail = function(user){
+            var emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            console.log('isEmail');
+            return emailReg.test(user.email);
+        }
+        var usernameIsValid = function(user) {
+            console.log(user.username);
+            return /^[0-9a-zA-Z_.-]+$/.test(user.username);
+        }
+
+        var checkPassword = function checkPassword(user)
+        {
+            // at least one number, one lowercase letter
+            // at least six characters
+            var re = /(?=.*\d)(?=.*[a-z]).{6,}/; //(?=.*[A-Z]) 
+            console.log(user.user_password);
+            return re.test(user.user_password);
+        }
     }])
 })(window, window.angular)
