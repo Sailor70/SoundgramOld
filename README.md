@@ -5,4 +5,4 @@ Soundgram is a social network web app (AngularJS NodeJs+Express PostgreSQL)
 
 Screenshots:
 
-![alt tag](https://github.com/Sailor70/SoundgramOld/blob/master/screenshots/SoundgramHomePage.JPG) ![alt tag](https://github.com/Sailor70/SoundgramOld/blob/master/screenshots/SoundgramHomePage.JPG)
+![alt tag](https://github.com/Sailor70/SoundgramOld/blob/master/screenshots/SoundgramHomePage.JPG)
